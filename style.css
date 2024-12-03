@@ -1,0 +1,690 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .navbar {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+  
+    @media screen and (min-width: 768px) {
+      display: flex;
+      padding: 10px 1rem;
+      max-width: 90dvw;
+      margin-inline: auto;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      max-width: 75dvw;
+      padding: 10px 30px;
+    }
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+  
+    @media screen and (min-width: 768px) {
+      align-items: center;
+      gap: 0.7rem;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      gap: 40px;
+    }
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.3s;
+  
+    @media screen and (min-width: 768px) {
+      white-space: nowrap;
+    }
+  }
+  .nav-links a:hover {
+    color: white;
+    padding: 15px;
+    background-color: #e67e22;
+    border-radius: 50%;
+    transition: all 0.3s;
+  }
+  .nav-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-icons li {
+    margin-left: 5px;
+    font-size: 20px;
+  }
+  .nav-icons a img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .icon-container {
+    background-color: black;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+  }
+  .icon {
+    width: 18px;
+    fill: white;
+  }
+  .buy-btn {
+    background-color: #27850d;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .buy-btn:hover {
+    background-color: #e67e22;
+  }
+  .container {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("imges/hill-background-js7kl8m9jveiiq2y-m2Wp0jG4WwIjpw28.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    height: 65vh;
+    position: relative;
+    padding-top: 15px;
+  
+    @media screen and (min-width: 768px) {
+      height: 100dvh;
+    }
+  }
+  .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 50px auto;
+  }
+  .img1 {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .img2 {
+    width: 1200px;
+    max-width: 80dvw;
+  }
+  .images img {
+    width: 100%;
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .animated {
+    animation: slideDown 1s ease-out;
+  }
+  .seconeText {
+    font-size: 2rem;
+    color: #c9c9c9;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    font-family: "luckiestGuy", "luckiestGuy Fallback";
+    text-align: center;
+  }
+  .contactAddress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .contactText {
+    color: white;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    text-align: center;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: "luckiestGuy", "luckiestGuy Fallback";
+  }
+  .clipboardCopy {
+    background-color: white;
+    padding: 1rem;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    max-width: 40rem;
+    width: 100%;
+    position: relative;
+    
+  
+    /* FIRST SPAN "CA:" */
+    & > span:first-of-type {
+      background-color: rgb(229 93 45);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      color: #ededed;
+      font-size: 16px;
+    }
+  
+    /* MESSAGE SHOW AFTER CLICK ON THE COPY BUTTON */
+    .tooltip {
+      position: absolute;
+      top: -30px;
+      right: -5%;
+      transform: translateX(-50%);
+      background: black;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+  
+      /* "&" -> means the current element which is the tooltip in this case */
+      /* ADD SHOW CLASS TO TOOLTIP AFTER THE COPY BUTTON CLICKED TO SHOW IT */
+      &.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+    /* COPY TEXT */
+    .copyText {
+      font-size: 18px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      flex: 1;
+      white-space: nowrap;
+      font-family: "Inconsolata", "Inconsolata Fallback";
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: black !important;
+    }
+  
+    /* COPY BUTTON */
+    .copyButton {
+      transition-duration: 0.3s;
+      transition-property: color, background-color, border-color,
+        text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      position: relative;
+      cursor: pointer;
+      appearance: button;
+      background-color: transparent;
+      background-image: none;
+      text-transform: none;
+      border: none;
+  
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: block;
+      }
+  
+      /* "&" -> means the current element which is the button itself in this case */
+      &:hover {
+        background-color: rgb(229 93 45);
+        color: white;
+      }
+    }
+  }
+  .clipboardCopy .seconeText {
+    font-size: 2rem;
+    color: #c9c9c9;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    font-family: "luckiestGuy", "luckiestGuy Fallback";
+    text-align: center;
+  }
+  
+  /*  */
+  .secTwo {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .secTwo .imgs {
+    text-align: left;
+  
+    @media screen and (min-width: 1024px) {
+      grid-row: 1 / 3;
+      display: grid;
+      place-items: center;
+    }
+  }
+  .text .text1 {
+    text-align: right;
+  }
+  .text .text1 span {
+    color: greenyellow;
+    width: 25px;
+  }
+  .container .nav-icons li a:hover i,
+  a:hover svg,
+  a:hover img {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+  .secTwo {
+    font-family: "Outfit", sans-serif;
+    background-color: #1a1a1a;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .imgs-text-wrapper {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: 1fr;
+    max-width: 85dvw;
+    gap: 1rem;
+    margin-block: 2rem;
+  
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 0.75fr;
+    }
+  }
+  
+  .imgs img {
+    width: 70%;
+    margin-left: 80px;
+    height: auto;
+  
+    @media screen and (min-width: 1024px) {
+      margin-left: 0;
+      width: 90%;
+    }
+  }
+  .text {
+    color: white;
+    padding: 0;
+  
+    @media screen and (max-width: 768px) {
+      order: -1;
+    }
+  }
+  .text .text1 {
+    text-align: center;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .text .text1 span {
+    color: rgb(0, 255, 17);
+    font-weight: 400;
+    font-size: 3em;
+    font-family: Lobster;
+    @media screen and (max-width: 768px) {
+      font-size: 2em;
+    }
+  }
+  .quote-mark {
+    font-size: 2.5em;
+    color: white !important;
+    font-weight: bold;
+  }
+  .textBold {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.6;
+    font-family: Lobster;
+  
+    @media screen and (max-width: 768px) {
+      margin: 0 0 1rem;
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
+  .textNormal p {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  
+    @media screen and (max-width: 768px) {
+      margin: 0;
+      line-height: 1;
+      font-size: 14px;
+    }
+  }
+  
+  .textLogo {
+    max-width: 80dvw;
+    margin-inline: auto;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .textLogo h5 {
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+  
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+  .textLogo p {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    margin: 5px 0;
+    text-align: center;
+    line-break: anywhere;
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+  .textLogo .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  
+    a {
+      display: inline-block;
+      margin: 0 10px;
+      text-align: center;
+  
+      img {
+        width: 80px;
+        aspect-ratio: 1;
+      }
+    }
+  }
+  .groupImg {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+  
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+  .groupImg img {
+    width: 15%;
+    margin: 5px;
+    border-radius: 8px;
+  
+    @media screen and (max-width: 768px) {
+      width: 40%;
+      margin: 0;
+    }
+  }
+  .groupImg img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  .secTwo .groupText {
+    text-align: center;
+    width: 100%;
+    margin-bottom: -30px;
+  
+    @media screen and (max-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+  .secTwo .groupText img {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  
+    @media screen and (max-width: 768px) {
+      width: 85%;
+    }
+  }
+  
+  /*  */
+  .card-containerImg {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+    @media screen and (max-width: 768px) {
+      margin: 0;
+    }
+  }
+  .card-containerImg img {
+    width: 35%;
+    margin-bottom: -40px;
+  
+    @media screen and (max-width: 768px) {
+      width: 80%;
+      margin-bottom: 0;
+    }
+  }
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+    width: 100%;
+    font-family: sans-serif;
+  
+    @media screen and (max-width: 768px) {
+      margin: 0 0 1rem;
+    }
+  }
+  .card {
+    width: 325px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+  }
+  .card img {
+    margin-bottom: -20px;
+    width: 100%;
+    height: auto;
+  
+    @media screen and (max-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+  .card-content {
+    padding: 16px;
+  }
+  .card-content h4 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .card-content ul li {
+    margin: 15px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /*  */
+  .footer {
+    background-image: url(imges/424796f6-90e7-438c-88f4-94ee32f68a2b-removebg-preview-mk3zVjnK5ZUpqew8.avif);
+    background-position: center;
+    background-size: 90%;
+    background-color: rgb(73, 165, 73);
+    text-align: center;
+    padding: 20px 0;
+    background-repeat: no-repeat;
+  }
+  
+  .footer .footerImg {
+    margin-bottom: 60px;
+  }
+  .footer img {
+    width: 30%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .custom-text {
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+  }
+  
+  /* added */
+  .buy-now {
+    width: 120px !important;
+  }
+  .buy-now-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  .chill-pepe {
+    width: 488px !important;
+  }
+  .responsive-nav {
+    display: none;
+    position: absolute;
+    top: 5px;
+    background: white;
+    border-radius: 39px;
+    height: 50px;
+    width: 98%;
+    left: 1%;
+    padding-left: 16px;
+    padding-right: 8px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .responsive-nav i {
+    font-size: 21px;
+  }
+  .menu-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  .drop-down-menu {
+    width: 96%;
+    position: absolute;
+    left: 2%;
+    top: 55px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: white;
+    border-radius: 19px;
+  }
+  .menu-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .menu-container a {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+  .menu-container a:hover {
+    color: rgb(73, 165, 73);
+  }
+  .menu-container a:active {
+    color: rgb(73, 165, 73);
+  }
+  .menu-icons-container {
+    margin-top: 16px;
+    padding-top: 16pxpx;
+    border-top: solid 1px rgb(229, 225, 225);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+  }
+  @media screen and (max-width: 768px) {
+    .responsive-nav {
+      display: flex;
+    }
+    .responsive-container {
+      min-height: 88vh;
+    }
+    .images-responsive {
+      flex-direction: column-reverse;
+      width: 80%;
+    }
+    .img1 {
+      display: flex;
+      justify-content: center;
+    }
+    .chill-pepe {
+      width: 197px !important;
+    }
+    .buy-now {
+      display: block;
+      width: 120px !important;
+    }
+    .contactAddress {
+      margin-top: 8px;
+    }
+    .contactText {
+      display: none;
+    }
+    .img2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .clipboardCopy {
+      max-width: 320px;
+    }
+  }
